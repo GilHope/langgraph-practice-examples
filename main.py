@@ -19,3 +19,13 @@ def generation_node(state: Sequence[BaseMessage]):
 def reflection_node(messages: Sequence[BaseMessage]) -> List[BaseMessage]:
     res = reflect_chain.invoke({"messages": messages})
     return [HumanMessage(content=res.content)]
+
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    print("Hello LangGraph!")
