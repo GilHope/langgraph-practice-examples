@@ -68,6 +68,8 @@ graph = builder.compile()
 print(graph.get_graph().draw_mermaid())
 # Print the graph in Mermaid format. Mermaid is OS tool for visualizing graphs.
 # This will show the structure of the graph in a visual way.
+# You can copy and paste this into a Mermaid editor to visualize the graph.
+# https://mermaid.live/edit
 
 
 if __name__ == "__main__":
