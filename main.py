@@ -54,5 +54,21 @@ def should_continue(state: List[BaseMessage]):
 # Otherwise, it will continue to the REFLECT node.
 
 
+builder.add_conditional_edges(GENERATE, should_continue)
+# Add the conditional branch to the graph.
+# This will determine which node to go to next based on the state.
+builder.add_edge(REFLECT, GENERATE)
+# Add an edge from the REFLECT node back to the GENERATE node.
+# This will create a loop in the graph, allowing the conversation to continue indefinitely.
+
+
+graph = builder.build()
+# Build the graph from the builder.
+# This will create the graph structure based on the nodes and edges defined.
+print(graph.get_graph().draw_mermaid())
+# Print the graph in Mermaid format. Mermaid is OS tool for visualizing graphs.
+# This will show the structure of the graph in a visual way.
+
+
 if __name__ == "__main__":
     print("Hello LangGraph!")
