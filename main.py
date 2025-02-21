@@ -44,7 +44,14 @@ builder.add_node(REFLECT, reflection_node)
 builder.set_entry_point(GENERATE)
 
 
-
+# Conditional branch
+def should_continue(state: List[BaseMessage]):
+    if len(state) > 6:
+        return END
+    return REFLECT
+# Receives the state and returns the next node to go to based on the state.
+# If the state has more than 6 messages, the graph will stop execution.
+# Otherwise, it will continue to the REFLECT node.
 
 
 if __name__ == "__main__":
