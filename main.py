@@ -70,7 +70,19 @@ print(graph.get_graph().draw_mermaid())
 # This will show the structure of the graph in a visual way.
 # You can copy and paste this into a Mermaid editor to visualize the graph.
 # https://mermaid.live/edit
+graph.get_graph().print_ascii()
+# Print the graph in ASCII format.
+# This will show the structure of the graph in a text-based way.
 
 
 if __name__ == "__main__":
     print("Hello LangGraph!")
+    inputs = HumanMessage(content="""Make this tweet better:"
+                          @LangChainAI
+            - newly Tool Calling feature is seriously underrated.
+
+            After a long wait, it's here- making the implementation of agents across different models with funtion calling.
+            
+            Made a video covering their newest blog post
+                          """)
+    response = graph.invoke(inputs)
