@@ -62,9 +62,9 @@ builder.add_edge(REFLECT, GENERATE)
 # This will create a loop in the graph, allowing the conversation to continue indefinitely.
 
 
-graph = builder.build()
-# Build the graph from the builder.
-# This will create the graph structure based on the nodes and edges defined.
+graph = builder.compile()
+# Compile the graph to create the final structure.
+# The graph is now ready to be executed
 print(graph.get_graph().draw_mermaid())
 # Print the graph in Mermaid format. Mermaid is OS tool for visualizing graphs.
 # This will show the structure of the graph in a visual way.
