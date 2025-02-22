@@ -12,7 +12,7 @@ from langgraph.graph import END, MessageGraph
 # END is a constant for LangGraph's default 'end' node. 
 # When a node with this key is reached, LangGraph will stop execution.
 
-from chains import generate_chain, reflect_chain
+from reflection_agent.chains import generate_chain, reflect_chain
 # Import from chains.py. These are the chains which will run in each node of our LangGraph graph.
 
 
