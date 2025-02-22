@@ -48,3 +48,19 @@ actor_prompt_template = ChatPromptTemplate.from_messages(
 # Define the prompt template for the actor
 # The MessagesPlaceholder will pass in all the message history to the prompt
 # The partial function will fill in the current time
+
+
+first_responder_prompt_template = actor_prompt_template.partial(
+    first_instruction="Provide a detailed ~250 word answer."
+)
+# Define the prompt template for the first responder
+# The first_instruction will be filled in with the first instruction
+
+
+first_responder = first_responder_prompt_template | llm.bind_tools(
+    tools=[AnswerQuestion], tool_choice="AnswerQuestion"
+)
+# Define the first responder chain
+# Will take the first_responder_prompt_template and pipe it to the OpenAI model
+# The OpenAI model will use the AnswerQuestion schema to parse the output
+# The AnswerQuestion will be used as the tool choice
