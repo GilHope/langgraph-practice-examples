@@ -22,6 +22,11 @@ from langchain_openai import ChatOpenAI
 from schemas import AnswerQuestion
 
 llm = ChatOpenAI(model="gpt-4-turbo-preview")
+parser = JsonOutputToolsParser(return_id=True)
+parser_pydantic = PydanticToolsParser(tools=[AnswerQuestion])
+# Define the OpenAI model
+# Parse the output as JSON
+# Parse the output as Pydantic objects using the AnswerQuestion schema
 
 
 actor_prompt_template = ChatPromptTemplate.from_messages(
