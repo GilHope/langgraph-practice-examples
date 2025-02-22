@@ -64,3 +64,23 @@ first_responder = first_responder_prompt_template | llm.bind_tools(
 # Will take the first_responder_prompt_template and pipe it to the OpenAI model
 # The OpenAI model will use the AnswerQuestion schema to parse the output
 # The AnswerQuestion will be used as the tool choice
+
+
+if __name__ == '__main__':
+    human_message = HumanMessage(
+        content="Write about AI-Powered SOC / autonomous soc   problems domain,"
+        " list startups that do that and raised capital."
+    )
+    # Define the human message
+
+    chain = (
+        first_responder_prompt_template
+        | llm.bind_tools(tools=[AnswerQuestion], tool_choice="AnswerQuestion")
+        | parser_pydantic
+    )
+    # Define the chain
+
+    res = chain.invoke(input={"messages": [human_message]})
+    print(res)
+    # Invoke the chain with the human message
+    # Print the result
