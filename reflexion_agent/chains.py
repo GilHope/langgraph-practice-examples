@@ -19,6 +19,10 @@ from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 
+from schemas import AnswerQuestion
+
+llm = ChatOpenAI(model="gpt-4-turbo-preview")
+
 
 actor_prompt_template = ChatPromptTemplate.from_messages(
     [
