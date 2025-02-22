@@ -29,5 +29,6 @@ Current time: {time}
 2. Reflect and critique your answer. Be severe to maximize improvement.
 3. Recommend search queries to research information and improve your answer.""",
         ),
+        MessagesPlaceholder(variable_name="messages"),
     ]
 )
