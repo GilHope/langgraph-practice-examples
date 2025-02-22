@@ -31,4 +31,6 @@ Current time: {time}
         ),
         MessagesPlaceholder(variable_name="messages"),
     ]
+).partial(
+    time=lambda: datetime.datetime.now().isoformat(),
 )
