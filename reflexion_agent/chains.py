@@ -19,7 +19,7 @@ from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 
-from schemas import AnswerQuestion
+from schemas import AnswerQuestion, ReviseAnswer
 
 llm = ChatOpenAI(model="gpt-4-turbo-preview")
 parser = JsonOutputToolsParser(return_id=True)
@@ -75,6 +75,13 @@ revise_instructions = """Revise your previous answer using the new information.
 """
 # Define the revision instructions.
 # This instruction will plug into the original "actor_prompt_template" in the placeholder of "first_instruction"
+
+
+revisor = actor_prompt_template.partial(
+    first_instruction=revise_instructions 
+) | llm.bind_tools(tools=[ReviseAnswer], tool_choice="ReviseAnswer")
+# Define the revisor chain
+# Will take the actor_prompt_template and pipe it to the OpenAI model
 
 
 if __name__ == '__main__':
