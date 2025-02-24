@@ -25,3 +25,13 @@ class AnswerQuestion(BaseModel):
 # The AnswerQuestion schema will be used to answer the question
 # The AnswerQuestion schema has two fields: answer and reflection
 # The search_queries field is a list of search queries to improve the answer
+
+
+class ReviseAnswer(AnswerQuestion):
+    """Revise your original answer to your question."""
+
+    references: List[str] = Field(
+        description="Citations motivating your updated answer."
+    )
+# Define the ReviseAnswer schema
+# Inherits from the AnswerQuestion schema but adds a references field
