@@ -73,6 +73,8 @@ revise_instructions = """Revise your previous answer using the new information.
             - [2] https://www.example.com
     - You should use the previous critique to remove superfluous information from your answer and make SURE it is not more than 250 words.
 """
+# Define the revision instructions.
+# This instruction will plug into the original "actor_prompt_template" in the placeholder of "first_instruction"
 
 
 if __name__ == '__main__':
